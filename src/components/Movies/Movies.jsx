@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AddMovie } from "./AddMovie/AddMovie"
 
 export const Movies = () => {
     const [movies, setMovies] = useState([])
@@ -8,12 +9,21 @@ export const Movies = () => {
       id: movies.length + 1,
       title: newMovieTitle
     }
-    setMovies([...movies, newMovie]);
+    setMovies([...movies, newMovie])
   }
 
+  const onDeleteMovie = (id) => {
+    setMovies(movies.filter((movie) => movie.id !== id));
+  }
+
+  return (
+    <div className="movies-container">
+      <AddMovie onAddMovie={onAddMovie} />
+      <MovieList movies={movies} onDeleteMovie={onDeleteMovie} />
+    </div>
+  )
 
 
 
 
-  
 }
