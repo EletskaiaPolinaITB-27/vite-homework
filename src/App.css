@@ -40,3 +40,47 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+body{
+  background-color: #d1b7d3;
+}
+.movies-container{
+  max-width: 500px;
+  margin: 50px auto;
+  background: #61337d;
+  padding: 25px;
+  border-radius: 10px;
+}
+.add-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.add-container input{
+  padding: 8px;
+  border-radius: 5px;
+}
+.add-container button{
+  padding: 8px 15px;
+  border-radius: 5px;
+  background-color: #88acd3;
+  color: #ffffff;
+}
+.movie-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #88acd3;
+  border-radius: 5px;
+
+}
+.movie-item button{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #9e88d3;
+  color: #ffffff;
+}
