@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { AddMovie } from "./AddMovie/AddMovie"
+import { MovieList } from "../MovieList/MovieList"
 
 export const Movies = () => {
     const [movies, setMovies] = useState([])
