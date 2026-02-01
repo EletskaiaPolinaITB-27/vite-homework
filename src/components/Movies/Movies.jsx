@@ -5,26 +5,60 @@ import { MovieList } from "../MovieList/MovieList"
 export const Movies = () => {
     const [movies, setMovies] = useState([])
 
-    const onAddMovie = (newMovieTitle) => {
+    const onAddMovie = (title) => {
     const newMovie = {
       id: movies.length + 1,
-      title: newMovieTitle
+      title,
+      watched: false,
+      likeStatus: null
     }
     setMovies([...movies, newMovie])
   }
 
-  const onDeleteMovie = (id) => {
-    setMovies(movies.filter((movie) => movie.id !== id));
-  }
+  const onToggleWatched = (id) => {
+    const updatedMovies = movies.map(movie => {
+      if (movie.id === id) {
+        return { 
+        ...movie, 
+        watched: !movie.watched, 
+        likeStatus: null 
+      }
+    }
+    return movie
+  })
+
+  setMovies(updatedMovies)
+}
+
+const onLike = (id) => {
+  const updatedMovies = movies.map(movie => {
+    if (movie.id === id) {
+      return { ...movie, likeStatus: "like" }
+    }
+    return movie
+  })
+
+  setMovies(updatedMovies)
+}
+
+const onDislike = (id) => {
+  const updatedMovies = movies.map(movie => {
+    if (movie.id === id) {
+      return { ...movie, likeStatus: "dislike" }
+    }
+    return movie
+  })
+
+  setMovies(updatedMovies)
+}
 
   return (
     <div className="movies-container">
       <AddMovie onAddMovie={onAddMovie} />
-      <MovieList movies={movies} onDeleteMovie={onDeleteMovie} />
+      <MovieList movies={movies}                 
+        onToggleWatched={onToggleWatched}
+        onLike={onLike}
+        onDislike={onDislike} />
     </div>
   )
-
-
-
-
 }
