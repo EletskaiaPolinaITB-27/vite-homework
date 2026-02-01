@@ -1,8 +1,7 @@
-export const MovieItem = (props) => {
+export const MovieItem = ({title}) => {
   return (
-    <div className="movie-item">
-      <p>{props.movie.title}</p>
-      <button onClick={() => props.onDelete(props.movie.id)}>delete</button>
+    <div>
+      <p>{title}</p>
     </div>
   )
 }
